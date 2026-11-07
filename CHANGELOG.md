@@ -36,11 +36,11 @@
 
 ### APK
 ```
-文件  dist/cust-campus-0.1.1-<code>-debug.apk
-源码  tag v0.1.1
-构建  待构建后回填
-体积  待构建后回填
-MD5   待构建后回填
+文件  dist/cust-campus-0.1.1-11-debug.apk
+源码  tag v0.1.1 (20bd783)
+构建  2026-11-07 23:41:24
+体积  17,693,878 字节
+MD5   96f0567364375ea91f5a6167935d8873
 ```
 
 ---
@@ -77,11 +77,14 @@ MD5   待构建后回填
 
 ### APK
 ```
-文件  dist/cust-campus-0.1.0-5-debug.apk
+文件  未归档（按版本归档的机制在 0.1.1 才引入）
 源码  tag v0.1.0 (c80cd5d)
 构建  2026-11-07 23:08:36
-体积  17.7 MB
+体积  17,692,809 字节
 MD5   a83c3f5e8793d0bec0111392f371fac7
+备注  该产物已被同日晚间的后续构建覆盖，且构建不可复现（见 AGENTS.md §3.4），
+      无法再生成 MD5 相同的包。需要 0.1.0 的行为时，用 tag v0.1.0 重新构建，
+      或直接使用 0.1.1 —— 两者功能完全一致。
 ```
 
 [Unreleased]: https://github.com/Song-art423/cust-campus-app/compare/v0.1.1...develop
