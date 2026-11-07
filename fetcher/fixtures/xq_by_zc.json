@@ -1,0 +1,41 @@
+{
+  "ret": 0,
+  "msg": "获取成功",
+  "data": [
+    {
+      "date": "11-2",
+      "sfdt": false,
+      "xq": "周一"
+    },
+    {
+      "date": "11-3",
+      "sfdt": false,
+      "xq": "周二"
+    },
+    {
+      "date": "11-4",
+      "sfdt": false,
+      "xq": "周三"
+    },
+    {
+      "date": "11-5",
+      "sfdt": true,
+      "xq": "周四"
+    },
+    {
+      "date": "11-6",
+      "sfdt": false,
+      "xq": "周五"
+    },
+    {
+      "date": "11-7",
+      "sfdt": false,
+      "xq": "周六"
+    },
+    {
+      "date": "11-8",
+      "sfdt": false,
+      "xq": "周日"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "_说明": "把 cookie 换成浏览器里复制的完整 Cookie 值。获取方法：F12 -> Network -> 刷新页面 -> 点第一条请求 -> Request Headers -> Cookie 整行复制",
+  "_说明2": "base_url 保持 tls.ccsut.cn 即可；若结果全是 401/302，说明 Cookie 已过期，重新复制",
+  "base_url": "https://tls.ccsut.cn/",
+  "cookie": "PASTE_YOUR_COOKIE_HERE",
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+  "extra_urls": []
+}

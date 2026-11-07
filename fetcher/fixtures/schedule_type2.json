@@ -1,0 +1,799 @@
+{
+  "ret": 0,
+  "msg": "获取成功",
+  "data": {
+    "sjk": [
+      {
+        "jxbzc": "-",
+        "tmc": "-",
+        "kcmc": "-",
+        "type": "-",
+        "xkrs": "-",
+        "zcstr": "-"
+      }
+    ],
+    "jcKcxx": [
+      {
+        "jssj": "9:05",
+        "jcbm": "1",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "1",
+        "kssj": "8:20"
+      },
+      {
+        "jssj": "10:00",
+        "jcbm": "2",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "2",
+        "kssj": "9:15"
+      },
+      {
+        "jssj": "11:05",
+        "jcbm": "3",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "3",
+        "kssj": "10:20"
+      },
+      {
+        "jssj": "12:00",
+        "jcbm": "4",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "4",
+        "kssj": "11:15"
+      },
+      {
+        "jssj": "14:45",
+        "jcbm": "5",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "5",
+        "kssj": "14:00"
+      },
+      {
+        "jssj": "15:40",
+        "jcbm": "6",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "6",
+        "kssj": "14:55"
+      },
+      {
+        "jssj": "16:45",
+        "jcbm": "7",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "7",
+        "kssj": "16:00"
+      },
+      {
+        "jssj": "17:40",
+        "jcbm": "8",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "8",
+        "kssj": "16:55"
+      },
+      {
+        "jssj": "19:45",
+        "jcbm": "9",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "9",
+        "kssj": "19:00"
+      },
+      {
+        "jssj": "20:40",
+        "jcbm": "10",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "10",
+        "kssj": "19:55"
+      }
+    ],
+    "kbxjxsmc": "1"
+  }
+}

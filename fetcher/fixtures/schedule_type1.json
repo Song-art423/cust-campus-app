@@ -1,0 +1,807 @@
+{
+  "ret": 0,
+  "msg": "获取成功",
+  "data": {
+    "sjk": [
+      {
+        "jxbzc": "-",
+        "tmc": "-",
+        "kcmc": "网络课程：人工智能伦理导论",
+        "type": "理论课程",
+        "xkrs": "900人",
+        "zcstr": "8-15周"
+      },
+      {
+        "jxbzc": "-",
+        "tmc": "-",
+        "kcmc": "网络课程：认识美，欣赏美，创造美（大学美育）",
+        "type": "理论课程",
+        "xkrs": "900人",
+        "zcstr": "8-15周"
+      }
+    ],
+    "jcKcxx": [
+      {
+        "jssj": "9:05",
+        "jcbm": "1",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "蒋晶",
+                "classroom": "7-南507",
+                "kcmc": "大学英语A3"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "崔培东",
+                "classroom": "3-110",
+                "kcmc": "线性代数"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "熊辉",
+                "classroom": "7-北502",
+                "kcmc": "创业基础（创新思维）"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "邹宗丰",
+                "classroom": "9-北402",
+                "kcmc": "复变函数与积分变换"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "1",
+        "kssj": "8:20"
+      },
+      {
+        "jssj": "10:00",
+        "jcbm": "2",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "蒋晶",
+                "classroom": "7-南507",
+                "kcmc": "大学英语A3"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "崔培东",
+                "classroom": "3-110",
+                "kcmc": "线性代数"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "熊辉",
+                "classroom": "7-北502",
+                "kcmc": "创业基础（创新思维）"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "邹宗丰",
+                "classroom": "9-北402",
+                "kcmc": "复变函数与积分变换"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "2",
+        "kssj": "9:15"
+      },
+      {
+        "jssj": "11:05",
+        "jcbm": "3",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "陈珊",
+                "classroom": "4-南308",
+                "kcmc": "模拟电子技术"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "邹宗丰",
+                "classroom": "7-中505",
+                "kcmc": "复变函数与积分变换"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "3",
+        "kssj": "10:20"
+      },
+      {
+        "jssj": "12:00",
+        "jcbm": "4",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "陈珊",
+                "classroom": "4-南308",
+                "kcmc": "模拟电子技术"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "邹宗丰",
+                "classroom": "7-中505",
+                "kcmc": "复变函数与积分变换"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "4",
+        "kssj": "11:15"
+      },
+      {
+        "jssj": "14:45",
+        "jcbm": "5",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "孙丹",
+                "classroom": "7-南507",
+                "kcmc": "马克思主义基本原理"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "孙丹",
+                "classroom": "7-中508",
+                "kcmc": "马克思主义基本原理"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "晏紫琦",
+                "classroom": "4-南302",
+                "kcmc": "模拟电子技术"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "5",
+        "kssj": "14:00"
+      },
+      {
+        "jssj": "15:40",
+        "jcbm": "6",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "孙丹",
+                "classroom": "7-南507",
+                "kcmc": "马克思主义基本原理"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "孙丹",
+                "classroom": "7-中508",
+                "kcmc": "马克思主义基本原理"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "晏紫琦",
+                "classroom": "4-南302",
+                "kcmc": "模拟电子技术"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "6",
+        "kssj": "14:55"
+      },
+      {
+        "jssj": "16:45",
+        "jcbm": "7",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "周凡凯",
+                "classroom": "C-操场",
+                "kcmc": "体育3-体育3-足球"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "崔培东",
+                "classroom": "3-110",
+                "kcmc": "线性代数"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "石英春",
+                "classroom": "4-南305",
+                "kcmc": "数字电子技术"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "刘宝洋",
+                "classroom": "4-南301",
+                "kcmc": "数字电子技术"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "7",
+        "kssj": "16:00"
+      },
+      {
+        "jssj": "17:40",
+        "jcbm": "8",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "周凡凯",
+                "classroom": "C-操场",
+                "kcmc": "体育3-体育3-足球"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "崔培东",
+                "classroom": "3-110",
+                "kcmc": "线性代数"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "石英春",
+                "classroom": "4-南305",
+                "kcmc": "数字电子技术"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "刘宝洋",
+                "classroom": "4-南301",
+                "kcmc": "数字电子技术"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "8",
+        "kssj": "16:55"
+      },
+      {
+        "jssj": "19:45",
+        "jcbm": "9",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "9",
+        "kssj": "19:00"
+      },
+      {
+        "jssj": "20:40",
+        "jcbm": "10",
+        "kbxx": [
+          {
+            "yzxq": "1",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "2",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "3",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "4",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "5",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "6",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          },
+          {
+            "yzxq": "7",
+            "kcxx": [
+              {
+                "teacher": "-",
+                "classroom": "-",
+                "kcmc": "-"
+              }
+            ]
+          }
+        ],
+        "jc": "10",
+        "kssj": "19:55"
+      }
+    ],
+    "kbxjxsmc": "1"
+  }
+}
