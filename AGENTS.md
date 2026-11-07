@@ -2,6 +2,8 @@
 
 > 面向所有参与本项目的 AI Agent / 协作者。**每次动手前先读这个文件。**
 
+
+
 ---
 
 ## 1. 项目结构
@@ -37,19 +39,19 @@ C:\Users\12\WorkBuddy\2026-11-06-13-41-15\cust-campus-app\dist\cust-campus-<vers
 
 ### 2.1 常驻分支
 
-| 分支 | 职责 | 谁能写 |
-|---|---|---|
-| `main` | **只存已发布状态**。每个 commit 都对应一个 tag、一份 APK。 | 只能由 `release/*`、`hotfix/*` 合入，**禁止直接提交** |
-| `develop` | 集成分支，反映「下一个版本」的最新状态。日常开发的落脚点。 | 直接提交 / 由 `feature/*`、`fix/*` 合入 |
+| 分支        | 职责                                      | 谁能写                                      |
+| --------- | --------------------------------------- | ---------------------------------------- |
+| `main`    | **只存已发布状态**。每个 commit 都对应一个 tag、一份 APK。 | 只能由 `release/*`、`hotfix/*` 合入，**禁止直接提交** |
+| `develop` | 集成分支，反映「下一个版本」的最新状态。日常开发的落脚点。           | 直接提交 / 由 `feature/*`、`fix/*` 合入          |
 
 ### 2.2 工作分支（生命期短，合完即删）
 
-| 分支 | 从哪切 | 合到哪 | 用途 |
-|---|---|---|---|
-| `feature/<scope>-<desc>` | `develop` | `develop` | 新功能 |
-| `fix/<scope>-<desc>` | `develop` | `develop` | 修非紧急 bug |
-| `release/v<X.Y.Z>` | `develop` | `main` + `develop` | 版本收敛：只改版本号、写 CHANGELOG、修阻断发布的问题，**冻结新功能** |
-| `hotfix/v<X.Y.Z>` | `main` | `main` + `develop` | 线上紧急问题，绕过 develop 直接修 |
+| 分支                       | 从哪切       | 合到哪                | 用途                                        |
+| ------------------------ | --------- | ------------------ | ----------------------------------------- |
+| `feature/<scope>-<desc>` | `develop` | `develop`          | 新功能                                       |
+| `fix/<scope>-<desc>`     | `develop` | `develop`          | 修非紧急 bug                                  |
+| `release/v<X.Y.Z>`       | `develop` | `main` + `develop` | 版本收敛：只改版本号、写 CHANGELOG、修阻断发布的问题，**冻结新功能** |
+| `hotfix/v<X.Y.Z>`        | `main`    | `main` + `develop` | 线上紧急问题，绕过 develop 直接修                     |
 
 ```
 feature/fix ──► develop ──► release/vX.Y.Z ──► main (打 tag) ──► 回灌 develop
@@ -59,10 +61,10 @@ feature/fix ──► develop ──► release/vX.Y.Z ──► main (打 tag) 
 
 ### 2.3 单人开发快速通道
 
-改动 ≤ 3 个文件且不涉及发版时，**直接在 `develop` 提交**，不必开 `feature/` 分支 ——
+改动 ≤ 3 个文件且不涉及发版时，**直接在 `develop` 提交**，不必开 `feature/` 分支 ——  
 开完立刻合的分支只会让 `git log --graph` 变糊。
 
-但 `release/*` 和 `hotfix/*` **必须走分支**：它们要打 tag，必须有一个明确的
+但 `release/*` 和 `hotfix/*` **必须走分支**：它们要打 tag，必须有一个明确的  
 合并点（`--no-ff`）把「这次发布包含哪些改动」记录成一条边界。
 
 ### 2.4 命名规则
@@ -98,11 +100,10 @@ git commit -am "chore(release): 发布 v0.2.0"
 git checkout main && git merge --no-ff release/v0.2.0
 
 # 5. 打带注释的 tag（禁止轻量 tag）
+#    tag 只负责锚定代码，不写 MD5 —— 原因见 §3.4
 git tag -a v0.2.0 -m "v0.2.0 — <一句话主题>
 
-APK: dist/cust-campus-0.2.0-<code>-debug.apk
-构建: YYYY-MM-DD HH:MM:SS
-MD5: <32位十六进制>"
+APK 元信息见 CHANGELOG.md 的 [0.2.0] 条目"
 
 # 6. 回灌 develop，然后一起推
 git checkout develop && git merge --no-ff main
@@ -113,12 +114,12 @@ git push origin main develop --tags
 
 版本号**由 git 自动推导**，禁止在 `build.gradle.kts` 里手写：
 
-| 字段 | 来源 | 示例 |
-|---|---|---|
-| `versionName` | 最近 tag（去 `v`）+ 领先提交数 + 脏标记 | `0.2.0` / `0.2.0-dev.3` / `0.2.0-dev.3-dirty` |
-| `versionCode` | `git rev-list --count HEAD`，单调递增、永不重复 | `7` |
+| 字段            | 来源                                    | 示例                                            |
+| ------------- | ------------------------------------- | --------------------------------------------- |
+| `versionName` | 最近 tag（去 `v`）+ 领先提交数 + 脏标记            | `0.2.0` / `0.2.0-dev.3` / `0.2.0-dev.3-dirty` |
+| `versionCode` | `git rev-list --count HEAD`，单调递增、永不重复 | `7`                                           |
 
-`-dev.N` 表示距上一个 tag 已经有 N 个提交，`-dirty` 表示工作区有未提交改动 ——
+`-dev.N` 表示距上一个 tag 已经有 N 个提交，`-dirty` 表示工作区有未提交改动 ——  
 **带这两个后缀的构建都不是正式版**，只能自己装。
 
 归档产物：
@@ -128,8 +129,8 @@ cd android && ./gradlew archiveDebug
 # → dist/cust-campus-<versionName>-<versionCode>-debug.apk
 ```
 
-`dist/` 被 gitignore，二进制不进仓库。正式包上传到
-[GitHub Releases](https://github.com/Song-art423/cust-campus-app/releases)，
+`dist/` 被 gitignore，二进制不进仓库。正式包上传到  
+[GitHub Releases](https://github.com/Song-art423/cust-campus-app/releases)，  
 tag 名与 Release 标题保持一致。
 
 ### 3.3 发版禁止事项
@@ -138,8 +139,32 @@ tag 名与 Release 标题保持一致。
 - ❌ 打轻量 tag（`git tag v0.2.0` 不带 `-a`）—— 没有作者和时间就没有追溯价值
 - ❌ 修改或删除**已推送**的 tag
 - ❌ tag 缺 `v` 前缀 —— `build.gradle.kts` 的解析规则依赖它
-- ❌ tag message 里不写 APK 的 MD5 与构建时间
+- ❌ tag message 里手写 APK 的 MD5 —— 构建不可复现，实测同一份源码两次构建
+  MD5 不同（`62f285…` vs `464780…`），写进去必然和实际产物对不上。见 §3.4
 - ❌ `release/*` 分支里加新功能
+
+### 3.4 为什么 MD5 只能事后记录
+
+实测结论：**AGP 构建的 debug APK 不可复现** —— 同一 commit、同一台机器、连续构建
+两次，产物 MD5 不同（类文件顺序 / 资源表编排 / 签名块均可能带非确定性）。
+
+由此推出两条必然：
+
+1. 想拿到正式包的 MD5，**必须先打 tag 再构建**（versionName 依赖 tag）
+2. 拿到 MD5 后再改 CHANGELOG，提交数 +1，若回头重打 tag 则 versionCode 也变，
+   新构建的 MD5 又会不同 —— **追自洽是无解的**
+
+所以把职责拆开，各管一段：
+
+| 载体 | 负责 | 写入时机 |
+|---|---|---|
+| tag | 锚定代码，回答「这版是哪些 commit」 | 构建前 |
+| `CHANGELOG.md` | 回答「这版的包长什么样」：文件名、时间、体积、MD5 | 构建**后**回填 |
+| GitHub Release | 面向使用者的发布说明，附 APK 附件 | 构建后 |
+
+CHANGELOG 的 MD5 回填是一次独立的 `docs` 提交，**发生在打 tag 之后**，
+所以 tag 指向的提交里 MD5 还是 `待构建后回填` —— 这是设计如此，不是遗漏。
+核对时以 tag 之后的那次 docs 提交为准。
 
 ---
 
@@ -169,17 +194,17 @@ tag 名与 Release 标题保持一致。
 
 **type 只能是这几个**：
 
-| type | 用途 |
-|---|---|
-| `feat` | 新功能 |
-| `fix` | 修 bug |
-| `refactor` | 重构，不改变外部行为 |
-| `perf` | 性能优化 |
-| `style` | 格式、缩进、命名，不影响逻辑 |
-| `docs` | 文档 |
-| `test` | 测试 |
-| `build` | 构建配置、依赖版本 |
-| `chore` | 杂务：gitignore、脚本、工具 |
+| type       | 用途                 |
+| ---------- | ------------------ |
+| `feat`     | 新功能                |
+| `fix`      | 修 bug              |
+| `refactor` | 重构，不改变外部行为         |
+| `perf`     | 性能优化               |
+| `style`    | 格式、缩进、命名，不影响逻辑     |
+| `docs`     | 文档                 |
+| `test`     | 测试                 |
+| `build`    | 构建配置、依赖版本          |
+| `chore`    | 杂务：gitignore、脚本、工具 |
 
 **scope 用项目里的模块名**：
 
@@ -240,21 +265,21 @@ cd android
 
 - 缩进 4 空格，不留行尾空格
 - 关键逻辑写**为什么**，不写**是什么**；禁止逐行注释
-- 所有对外 API 用 `runCatching` 兜住异常，**但必须把失败原因返回给调用方**，
+- 所有对外 API 用 `runCatching` 兜住异常，**但必须把失败原因返回给调用方**，  
   不许静默吞掉（本项目的通知问题就是这么被藏了两轮的）
 
 ### 6.2 通知相关（血泪教训，别重犯）
 
-- **不写任何 ROM 私有通知 extras**。写过 `miui.focus.param`，MIUI SystemUI
+- **不写任何 ROM 私有通知 extras**。写过 `miui.focus.param`，MIUI SystemUI  
   解析失败导致整条通知不渲染，连普通样式都没有，日志干净得像什么都没发生
 - **通知渠道 id 只增不改**。importance / 震动 / 声音创建即锁死
 - **不查 `areNotificationsEnabled` 的体检是假体检**
-- **`getActiveNotifications()` 不能紧跟 `notify()` 同步查**，系统可能还没写进
+- **`getActiveNotifications()` 不能紧跟 `notify()` 同步查**，系统可能还没写进  
   列表，会得到假阴性，至少要延迟几百毫秒
 
 ### 6.3 调试面板优先
 
-排查手机端问题时，先把「能不能自证」做出来（体检项 + 失败原因回显 + 二分按钮），
+排查手机端问题时，先把「能不能自证」做出来（体检项 + 失败原因回显 + 二分按钮），  
 再改业务代码。不要靠猜。
 
 ---
