@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <!-- 没有这条，NotificationChannel.enableVibration(true) 完全无效，通知静默无感 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!--
+        熄屏 / 锁屏时直接把提醒页盖到锁屏上（闹钟那种效果）。
+        Android 14 起默认只授予通话/闹钟类应用，但「侧载安装」（adb install / 传 APK 安装）
+        不走 Play 商店的撤销流程，权限默认是开启的。
+        仍需用 canUseFullScreenIntent() 查询实际状态，未授予时引导用户手动开。
+    -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+
+    <application
+        android:name=".CampusApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CustCampus">
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@style/Theme.CustCampus"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 内嵌登录页：Cookie 由系统 CookieManager 保管，一次登录长期有效 -->
+        <activity
+            android:name=".ui.LoginActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!--
+            熄屏提醒页：由 FullScreenIntent 拉起，盖在锁屏上。
+            excludeFromRecents 避免它污染最近任务列表。
+        -->
+        <activity
+            android:name=".ui.AlarmActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:taskAffinity=""
+            android:theme="@style/Theme.CustCampus.Alarm" />
+
+        <!-- 上课提醒闹钟。只在应用内触发，不对外暴露 -->
+        <receiver
+            android:name=".work.CourseAlarmReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.cust.campus.action.COURSE_REMIND" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

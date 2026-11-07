@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 日历卡片 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38,36 h32 a5,5 0 0 1 5,5 v30 a5,5 0 0 1 -5,5 h-32 a5,5 0 0 1 -5,-5 v-30 a5,5 0 0 1 5,-5 z" />
+
+    <!-- 顶部日期条 -->
+    <path
+        android:fillColor="#1A73E8"
+        android:pathData="M33,41 a5,5 0 0 1 5,-5 h32 a5,5 0 0 1 5,5 v6 h-42 z" />
+
+    <!-- 挂环 -->
+    <path
+        android:fillColor="#1A73E8"
+        android:pathData="M42,30 h3 a2,2 0 0 1 2,2 v6 a2,2 0 0 1 -2,2 h-3 a2,2 0 0 1 -2,-2 v-6 a2,2 0 0 1 2,-2 z" />
+    <path
+        android:fillColor="#1A73E8"
+        android:pathData="M63,30 h3 a2,2 0 0 1 2,2 v6 a2,2 0 0 1 -2,2 h-3 a2,2 0 0 1 -2,-2 v-6 a2,2 0 0 1 2,-2 z" />
+
+    <!-- 课表格子 -->
+    <path
+        android:strokeColor="#1A73E8"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:pathData="M39,55 h30" />
+    <path
+        android:strokeColor="#1A73E8"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:pathData="M39,63 h20" />
+    <path
+        android:strokeColor="#1A73E8"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:pathData="M39,71 h26" />
+
+</vector>

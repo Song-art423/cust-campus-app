@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#1A73E8</color>
+    <!-- 熄屏提醒页窗口底色，与 Compose 内容顶部同色，避免启动瞬间白闪 -->
+    <color name="alarm_background">#3B3BA8</color>
+</resources>
