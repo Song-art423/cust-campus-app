@@ -18,6 +18,33 @@
 
 ---
 
+## [0.1.1] - 2026-11-07
+
+**不含功能变更**，只补齐工程基建。功能面与 0.1.0 完全一致。
+
+### 变更
+- 版本号改为从 git 自动推导，不再手写：
+  `versionName` = 最近 tag（去 v）+ 领先提交数 + 脏标记；
+  `versionCode` = 提交总数，单调递增、永不重复
+- 新增 `archiveDebug` 任务，构建产物按版本号归档到 `dist/`
+- 实测确认 APK 构建不可复现（同 commit 两次构建 MD5 不同），
+  据此把 APK 元信息的记录责任从 tag 移到本文件，见 AGENTS.md §3.4
+
+### 文档
+- `AGENTS.md` 新增 §2 分支模型（GitFlow-lite）与 §3 发版流程
+- 新增本文件
+
+### APK
+```
+文件  dist/cust-campus-0.1.1-<code>-debug.apk
+源码  tag v0.1.1
+构建  待构建后回填
+体积  待构建后回填
+MD5   待构建后回填
+```
+
+---
+
 ## [0.1.0] - 2026-11-07
 
 首个可用版本。**注意：真机端到端尚未验证**，标记为 0.1.0 是因为功能面完整，
@@ -57,5 +84,6 @@
 MD5   a83c3f5e8793d0bec0111392f371fac7
 ```
 
-[Unreleased]: https://github.com/Song-art423/cust-campus-app/compare/v0.1.0...develop
+[Unreleased]: https://github.com/Song-art423/cust-campus-app/compare/v0.1.1...develop
+[0.1.1]: https://github.com/Song-art423/cust-campus-app/releases/tag/v0.1.1
 [0.1.0]: https://github.com/Song-art423/cust-campus-app/releases/tag/v0.1.0
