@@ -1,0 +1,24 @@
+# 含登录凭据，绝不提交
+cookie.txt
+*.cookie
+har/
+*.har
+*.devtools
+config.json
+config*.json
+!config.example.json
+
+# 运行时产物
+dumps/
+report.md
+__pycache__/
+*.pyc
+
+# 安卓
+.gradle/
+build/
+local.properties
+*.iml
+
+# 本地工具链（JDK / Android SDK），体积大且可重下
+.toolchain/
