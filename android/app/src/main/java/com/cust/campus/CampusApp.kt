@@ -15,6 +15,8 @@ class CampusApp : Application() {
         // CookieManager 是懒加载的，提前初始化一次，后续所有请求才拿得到落盘的 Cookie
         CookieBridge.init(this)
         SessionNotifier.ensureChannel(this)
+        // 删旧渠道只在启动时做一次，绝不能放在发送路径上
+        CourseNotifier.cleanupLegacyChannels(this)
         CourseNotifier.ensureChannels(this)
 
         // 后台保活：每 6 小时轻碰一次教务系统

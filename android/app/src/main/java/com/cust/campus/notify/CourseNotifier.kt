@@ -85,13 +85,16 @@ object CourseNotifier {
 
     // ---------------------------------------------------------------- 渠道
 
+    /**
+     * 创建 / 补齐渠道。**只增不删。**
+     *
+     * 这里绝不调用 `deleteNotificationChannel` —— 曾经在发送前删除旧渠道再新建，
+     * 结果新渠道还没落库就 `notify()`，系统找不到渠道直接把通知丢掉，
+     * 而且不报错、不打日志。删除动作一律挪到 [cleanupLegacyChannels]，
+     * 只在 Application 启动时执行一次，和发送路径彻底隔开。
+     */
     fun ensureChannels(context: Context) {
         val nm = context.getSystemService(NotificationManager::class.java) ?: return
-
-        // 只清理上一版造的实验渠道，绝不碰 CHANNEL_COURSE
-        listOf(CHANNEL_V2, CHANNEL_V3).forEach { old ->
-            runCatching { nm.deleteNotificationChannel(old) }
-        }
 
         if (nm.getNotificationChannel(CHANNEL_COURSE) == null) {
             createCourseChannel(nm, CHANNEL_COURSE, "上课提醒", vibrate = false)
@@ -115,6 +118,19 @@ object CourseNotifier {
         }
     }
 
+    /**
+     * 清理历史遗留的实验渠道。**只在 Application 启动时调一次。**
+     *
+     * v2 / v3 是排查通知问题时换 id 换出来的，留着会让系统设置页出现
+     * 三条重名「上课提醒」，用户根本分不清哪个生效。
+     */
+    fun cleanupLegacyChannels(context: Context) {
+        val nm = context.getSystemService(NotificationManager::class.java) ?: return
+        listOf(CHANNEL_V2, CHANNEL_V3).forEach { old ->
+            runCatching { nm.deleteNotificationChannel(old) }
+        }
+    }
+
     private fun createCourseChannel(
         nm: NotificationManager,
         id: String,
@@ -129,10 +145,9 @@ object CourseNotifier {
                     if (vibrate) {
                         enableVibration(true)
                         vibrationPattern = VIBRATE_PATTERN
-                    } else {
-                        // 21:06 那版就是不震动的，保持一致；震动交给独立渠道
-                        enableVibration(false)
                     }
+                    // 不震动时不调 enableVibration —— 与 21:06 那版保持一致，
+                    // 那时渠道能正常弹通知，多调一个没必要的方法只会增加变量
                 }
             )
         }.onFailure { Log.e(TAG, "创建渠道 $id 失败", it) }
