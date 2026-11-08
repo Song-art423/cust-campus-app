@@ -77,6 +77,9 @@ android {
 
     buildFeatures {
         compose = true
+        // 调试面板的门控依赖 BuildConfig.DEBUG 与 VERSION_NAME。
+        // AGP 8 起默认不生成 BuildConfig，必须显式打开。
+        buildConfig = true
     }
 
     composeOptions {
