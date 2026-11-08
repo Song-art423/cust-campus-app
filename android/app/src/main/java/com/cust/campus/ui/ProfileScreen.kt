@@ -1,5 +1,6 @@
 package com.cust.campus.ui
 
+import android.os.SystemClock
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -18,12 +19,20 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableLongStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.cust.campus.BuildConfig
 import com.cust.campus.data.model.TermData
 import com.cust.campus.ui.components.CardHeader
 import com.cust.campus.ui.components.HairLine
@@ -53,6 +62,31 @@ fun ProfileScreen(
     onLogin: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val ctx = LocalContext.current
+
+    // 调试面板是否可见：debug 包默认开、release 包默认关，
+    // 连点版本号 7 次可随时切换（同一个手势收起来）。
+    var debugOn by remember { mutableStateOf(DebugGate.isOn(ctx)) }
+    var taps by remember { mutableIntStateOf(0) }
+    var lastTapAt by remember { mutableLongStateOf(0L) }
+
+    /**
+     * 连点计数。间隔超过窗口就重新数，避免「一天里零散点 7 次」被误判成解锁，
+     * 这也是 Android 系统设置里连点版本号的做法。
+     */
+    fun onVersionTap() {
+        val now = SystemClock.elapsedRealtime()
+        taps = if (lastTapAt != 0L && now - lastTapAt <= DebugGate.TAP_WINDOW_MS) taps + 1 else 1
+        lastTapAt = now
+        if (taps >= DebugGate.UNLOCK_TAPS) {
+            taps = 0
+            lastTapAt = 0L
+            val next = !debugOn
+            DebugGate.setOn(ctx, next)
+            debugOn = next
+        }
+    }
+
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -149,15 +183,21 @@ fun ProfileScreen(
 
         Spacer(Modifier.height(14.dp))
 
-        // ---- 登录态诊断 ----
-        // 掉 Cookie 在手机端完全不可见，这里把采集/保险库/探活/续期四环摊开
-        CookieDebugCard()
+        // ---- 调试区 ----
+        // 默认不渲染。debug 包首次安装可见，release 包要连点版本号 7 次才出现。
+        // 这两张卡会露出保险库快照、探活路径、渠道 id，不适合给普通用户看到。
+        if (debugOn) {
+            Spacer(Modifier.height(14.dp))
 
-        Spacer(Modifier.height(14.dp))
+            // 登录态诊断：掉 Cookie 在手机端完全不可见，
+            // 这里把采集 / 保险库 / 探活 / 续期四环摊开
+            CookieDebugCard()
 
-        // ---- 提醒调试 ----
-        // 课前弹窗没法靠「等」来测，这里给一套秒级验证手段
-        RemindDebugCard()
+            Spacer(Modifier.height(14.dp))
+
+            // 提醒调试：课前弹窗没法靠「等」来测，给一套秒级验证手段
+            RemindDebugCard()
+        }
 
         Spacer(Modifier.height(14.dp))
 
@@ -194,12 +234,21 @@ fun ProfileScreen(
         SoftCard(Modifier.fillMaxWidth()) {
             CardHeader(title = "关于")
             Spacer(Modifier.height(10.dp))
-            AboutRow("客户端版本", "1.0.0")
+            // 版本号取自 BuildConfig，不再硬编码 —— 它是解锁调试面板的入口，
+            // 显示错了就没人能对着说明找到该点哪一行
+            AboutRow("客户端版本", BuildConfig.VERSION_NAME, onClick = { onVersionTap() })
             HairLine()
             AboutRow("数据来源", "tls.ccsut.cn")
             HairLine()
             Box(Modifier.padding(vertical = 12.dp)) {
-                MetaText("课表数据为教务系统原始数据，仅供个人查询参考。", color = AppColor.TextTertiary)
+                MetaText(
+                    if (debugOn) {
+                        "调试面板已开放 · 再连点版本号 ${DebugGate.UNLOCK_TAPS} 次可收起"
+                    } else {
+                        "课表数据为教务系统原始数据，仅供个人查询参考。"
+                    },
+                    color = if (debugOn) AppColor.Accent else AppColor.TextTertiary
+                )
             }
         }
 
@@ -239,11 +288,13 @@ private fun SettingRow(
     }
 }
 
+/** 关于页的一行。传入 onClick 时整行可点（用于版本号连点解锁调试面板） */
 @Composable
-private fun AboutRow(label: String, value: String) {
+private fun AboutRow(label: String, value: String, onClick: (() -> Unit)? = null) {
     Row(
         Modifier
             .fillMaxWidth()
+            .then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier)
             .padding(vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
