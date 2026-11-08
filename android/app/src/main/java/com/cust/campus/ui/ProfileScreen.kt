@@ -149,6 +149,12 @@ fun ProfileScreen(
 
         Spacer(Modifier.height(14.dp))
 
+        // ---- 登录态诊断 ----
+        // 掉 Cookie 在手机端完全不可见，这里把采集/保险库/探活/续期四环摊开
+        CookieDebugCard()
+
+        Spacer(Modifier.height(14.dp))
+
         // ---- 提醒调试 ----
         // 课前弹窗没法靠「等」来测，这里给一套秒级验证手段
         RemindDebugCard()
