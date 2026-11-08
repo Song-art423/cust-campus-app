@@ -50,6 +50,25 @@ class AuthStore(context: Context) {
             prefs.edit().putLong(KEY_COOKIE_AT, value).commit()
         }
 
+    /**
+     * 快照与时间戳必须**一次 commit 落盘**。
+     *
+     * 分开写会制造致命错位：进程夹在两次 commit 之间被杀，就会留下
+     * 「cookie 是新的、cookieSavedAt 还是旧的」。回灌时按旧时间算，判定超 14 天，
+     * 于是走 `clear()` 把刚刚存进去的有效凭据一起删掉 —— 下次启动直接掉登录。
+     */
+    fun saveSnapshot(cookie: String, savedAt: Long) {
+        prefs.edit()
+            .putString(KEY_COOKIE, cookie)
+            .putLong(KEY_COOKIE_AT, savedAt)
+            .commit()
+    }
+
+    /** 只清 Cookie，保留其他字段时用；彻底登出请用 [clear] */
+    fun clearCookie() {
+        prefs.edit().remove(KEY_COOKIE).remove(KEY_COOKIE_AT).commit()
+    }
+
     val isLoggedIn: Boolean
         get() = !cookie.isNullOrBlank()
 
