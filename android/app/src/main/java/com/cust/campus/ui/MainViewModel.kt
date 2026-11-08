@@ -52,6 +52,9 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                 remindEnabled = CourseCache.isRemindEnabled(ctx)
             )
             refreshCookieStatus()
+            // 每次打开让页面脚本把 jw_uf* 的计时器归零，12 小时内只跑一次。
+            // 等探活失败再刷新就晚了 —— 那时服务端已经判定凭据不一致，页面也救不回来。
+            SessionKeeper.refreshPageIfStale(ctx)
             if (ScheduleStore.isStale(cached)) quickRefresh()
         } else {
             fullSync()
@@ -71,7 +74,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                 it.copy(syncing = true, syncProgress = 0f, syncLabel = "正在连接教务系统", error = null)
             }
             try {
-                if (SessionKeeper.ensure() == SessionKeeper.Status.EXPIRED) {
+                if (SessionKeeper.ensure(ctx) == SessionKeeper.Status.EXPIRED) {
                     _state.update {
                         it.copy(syncing = false, authExpired = true, error = "登录已过期")
                     }
@@ -120,7 +123,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         job = viewModelScope.launch {
             _state.update { it.copy(syncing = true, syncProgress = 0.3f, syncLabel = "正在更新") }
             try {
-                if (SessionKeeper.ensure() == SessionKeeper.Status.EXPIRED) {
+                if (SessionKeeper.ensure(ctx) == SessionKeeper.Status.EXPIRED) {
                     _state.update { it.copy(syncing = false, authExpired = true, syncLabel = "") }
                     refreshCookieStatus()
                     return@launch

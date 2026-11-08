@@ -64,7 +64,7 @@ class DailyRefreshWorker(
         Log.d(TAG, "开始每日刷新")
 
         // 先把登录态续上，否则拉了也是白拉
-        if (SessionKeeper.ensure() == SessionKeeper.Status.EXPIRED) {
+        if (SessionKeeper.ensure(applicationContext) == SessionKeeper.Status.EXPIRED) {
             Log.w(TAG, "登录态失效，跳过本次课程刷新")
             return Result.success()
         }

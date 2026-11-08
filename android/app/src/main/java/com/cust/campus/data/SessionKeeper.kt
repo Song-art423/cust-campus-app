@@ -8,10 +8,14 @@ import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import com.cust.campus.data.api.CookieBridge
 import com.cust.campus.data.api.CustApi
+import com.cust.campus.data.api.SilentWebRefresh
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.concurrent.TimeUnit
@@ -47,11 +51,22 @@ object SessionKeeper {
 
     private val api = CustApi()
 
+    /** 后台刷新用。SupervisorJob 保证某次失败不影响后续 */
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+
+    /** 上次让页面脚本跑过的时间。页面刷新开销大，不能每次都做 */
+    @Volatile
+    private var lastPageRefreshAt = 0L
+
     /**
-     * 三段式：先探活 -> 再静默续期 -> 最后才判定失效。
-     * 任何时候拿到 RENEWED 就说明用户完全无感。
+     * 四段式：回灌 -> 探活 -> CAS 续期 -> 页面刷新。
+     *
+     * 前三步都失败后仍然不放弃，是因为**接口失效不等于凭据失效**：
+     * `jw_uf*` 那组 cookie 由页面 JS 维护（时间戳、校验码），
+     * OkHttp 从不执行页面脚本，所以凭据会一天天变旧，直到服务端判定不一致。
+     * 这时候让 WebView 真正加载一次首页，页面脚本会把它们重新算一遍。
      */
-    suspend fun ensure(): Status {
+    suspend fun ensure(context: Context): Status {
         // CookieManager 被系统清空时先从加密保险库回灌，再谈探活。
         // 少了这一步，用户会莫名其妙被要求重新登录 —— v1 掉登录的主要原因之一。
         withContext(Dispatchers.IO) { CookieBridge.ensureRestored() }
@@ -60,11 +75,41 @@ object SessionKeeper {
             markChecked()
             return Status.ALIVE
         }
+
+        // 轻量方案先上：CAS 票据还在的话，一次重定向就能换到新会话
         if (api.silentRenew()) {
             markChecked()
             return Status.RENEWED
         }
+
+        // 重方案兜底：让页面脚本把 jw_uf* 重新算一遍
+        if (SilentWebRefresh.refresh(context)) {
+            lastPageRefreshAt = System.currentTimeMillis()
+            CookieBridge.saveVault()
+            if (api.isSessionAlive()) {
+                markChecked()
+                return Status.RENEWED
+            }
+        }
+
         return Status.EXPIRED
+    }
+
+    /**
+     * 主动让页面刷新一次 cookie，**异步执行、不阻塞调用方**。
+     *
+     * 用来在 App 打开时悄悄把凭据的计时器归零 —— 等到探活失败再刷新就晚了，
+     * 那时服务端已经判定失效，页面也救不回来。
+     *
+     * @param maxAgeHours 距上次刷新超过这个小时数才真正执行，默认 12 小时
+     */
+    fun refreshPageIfStale(context: Context, maxAgeHours: Long = 12L): Boolean {
+        val age = System.currentTimeMillis() - lastPageRefreshAt
+        if (lastPageRefreshAt > 0L && age < maxAgeHours * 3_600_000L) return false
+        if (!CookieBridge.hasCredential()) return false   // 没登录就别折腾
+        lastPageRefreshAt = System.currentTimeMillis()
+        scope.launch { runCatching { SilentWebRefresh.refresh(context) } }
+        return true
     }
 
     /** 注册后台保活任务。App 每次启动都调一次，Policy 用 KEEP 避免重置计时 */
@@ -111,7 +156,7 @@ class KeepAliveWorker(
 ) : CoroutineWorker(context, params) {
 
     override suspend fun doWork(): Result {
-        return when (SessionKeeper.ensure()) {
+        return when (SessionKeeper.ensure(applicationContext)) {
             SessionKeeper.Status.EXPIRED -> {
                 SessionNotifier.notifyExpired(applicationContext)
                 Result.success()
